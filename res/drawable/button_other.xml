@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true"
+          android:drawable="@drawable/comm_btn_bg2_s" /> <!-- pressed -->
+          
+    <item android:state_focused="true"
+          android:drawable="@drawable/comm_btn_bg2_s" /> <!-- focused -->
+          
+  
+    <item android:drawable="@drawable/comm_btn_bg2_n" /> <!-- default -->
+</selector>
