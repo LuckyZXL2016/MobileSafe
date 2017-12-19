@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="#8866ff00"
+        android:gravity="center"
+        android:text="流量统计"
+        android:textSize="22sp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+
+        <View
+            android:layout_width="200dip"
+            android:layout_height="fill_parent" >
+        </View>
+
+        <SlidingDrawer
+            android:id="@+id/slidingdrawer01"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:content="@+id/mycontent"
+            android:handle="@+id/myhandle"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/myhandle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sliding" />
+
+            <LinearLayout
+                android:id="@id/mycontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#22000000"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="暂未实现" />
+            </LinearLayout>
+        </SlidingDrawer>
+    </LinearLayout>
+
+</LinearLayout>
