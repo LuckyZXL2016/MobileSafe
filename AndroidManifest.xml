@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zxl.mobilesafe"
+    android:installLocation="preferExternal"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="com.zxl.mobilesafe" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"/>
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <uses-library android:name="android.test.runner" />
+
+        <activity
+            android:name="com.zxl.mobilesafe.SplashActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.zxl.mobilesafe.TrafficManagerActivity" />
+        <activity android:name="com.zxl.mobilesafe.HomeActivity" />
+        <activity android:name="com.zxl.mobilesafe.SettingActivity" />
+        <activity android:name="com.zxl.mobilesafe.LostFindActivity" />
+        <activity android:name="com.zxl.mobilesafe.Setup1Activity" />
+        <activity android:name="com.zxl.mobilesafe.Setup2Activity" />
+        <activity android:name="com.zxl.mobilesafe.Setup3Activity" />
+        <activity android:name="com.zxl.mobilesafe.Setup4Activity" />
+        <activity android:name="com.zxl.mobilesafe.SelectContactActivity" />
+        <activity android:name="com.zxl.mobilesafe.AtoolsActivity" />
+        <activity android:name="com.zxl.mobilesafe.NumberAddressQueryActivity" />
+        <activity android:name="com.zxl.mobilesafe.CallSmsSafeActivity" />
+        <activity android:name="com.zxl.mobilesafe.AppManagerActivity" />
+        <activity android:name="com.zxl.mobilesafe.TaskManagerActivity" />
+        <activity android:name="com.zxl.mobilesafe.TaskSettingActivity" />
+        <activity android:name="com.zxl.mobilesafe.AntiVirusActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity
+            android:name="com.zxl.mobilesafe.EnterPwdActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance" />
+		<activity android:name="com.zxl.mobilesafe.CleanCacheActivity" />
+        
+        <service android:name="com.zxl.mobilesafe.service.GPSService" />
+        <service android:name="com.zxl.mobilesafe.service.AddressService" />
+        <service android:name="com.zxl.mobilesafe.service.CallSmsSafeService" />
+        <service android:name="com.zxl.mobilesafe.service.AutoCleanService" />
+        <service android:name="com.zxl.mobilesafe.service.UpdateWidgetService" />
+        <service android:name="com.zxl.mobilesafe.service.WatchDogService" />
+
+        <receiver android:name="com.zxl.mobilesafe.receiver.BootCompleteReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" >
+                </action>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.zxl.mobilesafe.receiver.SMSReceiver" >
+            <intent-filter android:priority="1000" >
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" >
+                </action>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.zxl.mobilesafe.receiver.MyWidget" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/process_widget_provider" />
+        </receiver>
+        <receiver android:name="com.zxl.mobilesafe.receiver.KillAllReceiver" >
+            <intent-filter>
+                <action android:name="com.zxl.mobilesafe.killall" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
